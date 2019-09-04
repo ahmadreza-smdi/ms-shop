@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block background%}<body background={%static '/background/background1.jpg' %}> {%endblock%}
+{%block title%} MS SHOP {%endblock%}
+{%block nav%} {%endblock%}
+{%block body%}
+<div><div>
+    <h1 align='center' style="font-family:ubuntu"><b>WELCOM TO MS SHOP</b></h1></div>
+<div id='welcom'>
+    <div align='center'>
+        <a id='signupp'href="/registerations/">
+            <img src={% static "/logo/signup.png"%} alt="Sign Up">
+        </a>
+        <a id='loginn' href="/login/">
+            <img src={% static "/logo/login.png"%} alt="Login">
+        </a>
+    </div>
+</div>
+<div>
+        </head>
+        <body>
+        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+        <!-- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> -->
+</div>
+{%endblock%}
