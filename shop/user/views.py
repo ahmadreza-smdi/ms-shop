@@ -42,12 +42,13 @@ def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
+            user = form.save()
             login(request, user)
+            username = form.cleaned_data.get('username')
             logg.loging(username,request,'register')
+        else:
+            for msg in form.error_messages:
+                print(form.error_message[msg])
 
         return HttpResponseRedirect('/login/')
     else:
@@ -58,24 +59,6 @@ def dashboard(request):
     if request.user.is_authenticated():
         username = request.user.username
         return render(request,'dashboard.html',{"user_name":username})
-    else:
-        return HttpResponseRedirect('/login/')
-
-
-
-def choose_time(request):
-    if request.user.is_authenticated():
-        username = request.user.username
-        if request.method == 'POST':
-            Open_times=request.POST.get('time_select')
-            a = Member.objects.filter(user__username=username).update(class_time=Open_times)
-            if a :
-                logg.loging(username,request,'Chosen time has updated')
-            return HttpResponseRedirect('/dashboard')
-
-        print (username)
-        t = Time_option.objects.all()
-        return render(request,'time.html',{'t':t})
     else:
         return HttpResponseRedirect('/login/')
 

@@ -1,27 +1,22 @@
 {%extends 'base.html'%}
 {% load static%}
-{%block background%}<body background={% static '/background/background1.jpg'  %}> {%endblock%}
 {%block title%} Sign up {%endblock%}
+{%block background%}<body background={% static '/background/background1.jpg'%}> {%endblock%}
 {%block nav%} {%endblock%}
 
 {%block body%}
-<h2>Sign up</h2>
-<div align=''>
+<h2 >Registration</h2>
+<div>
     <form method="post">
     {% csrf_token %}
-    {% for field in form %}
-        <p>
-        {{ field.label_tag }}<br>
-        {{ field }}
-        {% if field.help_text %}
-            <small style="color: grey">{{ field.help_text }}</small>
-        {% endif %}
-        {% for error in field.errors %}
-            <p style="color: red">{{ error }}</p>
-        {% endfor %}
-        </p>
-    {% endfor %}
-    <button type="submit">Sign up</button>
-    </form>
+    <table>
+        {{ form.as_table }}
+         <tr>
+            <td></td>
+            <td><input type="submit" name="submit" value="Register" /></td>
+        </tr>
+    </table>
+  </form>
+
 </div>
 {%endblock%}

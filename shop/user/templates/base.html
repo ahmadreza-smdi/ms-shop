@@ -15,8 +15,11 @@
         <link rel="stylesheet" type="text/css" media="screen" href={% static "/assets/main.css"%}/>
         <script src={% static '/assets/main.js'%}></script>
     </head>
+    <div style="opacity: 0.3;filter: alpha(opacity=30);">
+
     {%block background%} {%endblock%}
-    <body onload="chart()">
+    </div>
+    <body>
     {%block body%}
 
 

@@ -1,14 +1,17 @@
-
+img {
+  opacity: 0.2;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+}
 #register,#login{
     position: absolute;
 	top: 35px;
-	width: 88%;	
+	width: 88%;
 	padding: 18px 6% 60px 6%;
 	margin:0  35px;
 	/* border: 1px solid rgba(189, 147, 163, 0.8);
 	/* box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset; */
 	-moz-border-radius: 5px;
-	border-radius: 5px;	
+	border-radius: 5px;
 	z-index: 21;
 }
 .pp {
@@ -17,13 +20,13 @@
 
 #settings{
 	top: 0px;
-	width: 88%;	
+	width: 88%;
 	padding: 18px 6% 60px 6%;
 	margin:0  35px;
 	/* border: 1px solid rgba(189, 147, 163, 0.8);
 	/* box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset; */
 	-moz-border-radius: 5px;
-	border-radius: 5px;	
+	border-radius: 5px;
 	z-index: 21;
 }
 * {box-sizing: border-box}
@@ -78,11 +81,11 @@ label{
     animation-delay: 2s;
     animation-fill-mode: backwards;
 }
-  
+
 @keyframes slidein {
 from {
     margin-left: 0%;
-    width: 300%; 
+    width: 300%;
 }
 
 to {
@@ -103,7 +106,7 @@ ul {
     margin: 0;
     padding: 0;
     }
-        
+
 li {
     display: inline;
 }
@@ -118,7 +121,7 @@ li {
     text-decoration: none;
     text-transform: uppercase;
     }
-     
+
 #navbar a:hover, a:active {
 background-color:rgb(7, 46, 46);
 }
@@ -142,5 +145,5 @@ input[type="submit"]{
     text-decoration: none;
     display: inline-block;
     font-size: 13px;
-    width:100px;    
+    width:100px;
 }
