@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate,logout,login
 from .models import Customer,Purchase
 from django.contrib.auth.models import User
 import threading
+from django.contrib.auth.decorators import login_required
 from log_package import logg
 from django.contrib.auth.forms import UserCreationForm
 from django.utils import timezone
@@ -30,7 +31,7 @@ def loginn(request):
             login(request,user)
             print("login is true")
             logg.loging(username,request,'login')
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/dashboard')
         else:
             print("login is false")
             return HttpResponseRedirect('/login/')
@@ -55,33 +56,32 @@ def register(request):
         form = UserCreationForm()
     return render(request,'Signup.html',{'form':form})
 
+@login_required
 def dashboard(request):
-    if request.user.is_authenticated():
-        username = request.user.username
-        return render(request,'dashboard.html',{"user_name":username})
-    else:
-        return HttpResponseRedirect('/login/')
-
+    # if request.user.is_authenticated():
+    #     username = request.user.username
+    return render(request,'dashboard.html',{"user_name":request.user.username})
+    # else:
+    #     return HttpResponseRedirect('/login/')
+@login_required
 def settings(request):
-    if request.user.is_authenticated():
+    username = request.user.get_username()
+    p = Customer.objects.get(user__username = username)
+    print(p.phone_number)
+    if request.method == 'POST':
         username = request.user.username
-        p = Member.objects.get(user__username = username)
-        print(p.phone_number)
-        if request.method == 'POST':
-            username = request.user.username
-            name=request.POST.get('name')
-            Skill=request.POST.get('Skill')
-            Age=request.POST.get('Age')
-            phone_number=request.POST.get('phone_number')
-            Sex=request.POST.get('Sex')
-            Bio=request.POST.get('bio')
-            birthdate=request.POST.get('birthdate')
-            a = Member.objects.filter(user__username=username).update(name = name ,phone_number =phone_number,sex = Sex,age = Age, skill = Skill ,profile = Bio )
-            if a:
-                logg.loging(username,request,'Settings has updated')
-            return HttpResponseRedirect('/dashboard')
-        if request.method == 'GET':
-            return render(request,'settings.html',{'p':p})
+        national_code=request.POST.get('national_code')
+        Age=request.POST.get('Age')
+        phone_number=request.POST.get('phone_number')
+        Sex=request.POST.get('Sex')
+        address=request.POST.get('address')
+        birthdate=request.POST.get('birthdate')
+        a = Customer.objects.filter(user__username=username).update(phone_number =phone_number,sex = Sex,age = Age, national_code = national_code ,address = address )
+        if a:
+            logg.loging(username,request,'Settings has updated')
+        return HttpResponseRedirect('/dashboard')
+    if request.method == 'GET':
+        return render(request,'settings.html',{'p':p})
     else:
         return HttpResponseRedirect('/login/')
 

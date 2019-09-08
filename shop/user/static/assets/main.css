@@ -1,7 +1,3 @@
-img {
-  opacity: 0.2;
-  filter: alpha(opacity=50); /* For IE8 and earlier */
-}
 #register,#login{
     position: absolute;
 	top: 35px;

@@ -11,25 +11,25 @@
             <br>
             <form name="register" action="/dashboard/settings/" method="POST">
                 {%csrf_token%}
-                <label for="name"><b>Name</b></label><br>
-                <input type="text" name="name" required="required" value="{{p.name}}"><br><br>
+                <label for="birthdate"><b>birthdate</b></label><br>
+                <input type="datetime" name="birthdate"value="{{p.birth_date}}"><br><br>
 
-                <label for="Skill"><b>Skill</b></label><br>
-                <input type="text" name="Skill" required="required" value="{{p.skill}}"><br><br>
+                <label for="national_code"><b>national code</b></label><br>
+                <input type="text" name="national_code" required="required" value="{{p.national_code}}"><br><br>
 
                 <label for="age"><b>Age</b></label><br>
                 <input type="text" name="Age" value="{{p.age}}"><br><br>
-                
+
                 <label for="phone_number"><b>Phone number</b></label><br>
                 <input type="tel" name="phone_number" value="{{p.phone_number}}"><br><br>
 
                 <label for="Sex"><b>Sex</b></label><br>
                 <input type="text" name="Sex" required="required" value="{{p.sex}}"><br><br>
 
-                <label for="bio"><b>Bio</b></label><br>
-                <textarea name="bio" id="" cols="30" rows="10" >{{p.profile}}</textarea><br><br>
+                <label for="address"><b>Addres</b></label><br>
+                <textarea name="address" id="" cols="15" rows="5" >{{p.address}}</textarea><br><br>
 
-                
-                <input type="submit" ‫;‪onclick="this.disabled=true‬;this.form.submit()" > 
+
+                <input type="submit" ‫;‪onclick="this.disabled=true‬;this.form.submit()" >
 </div>
 {%endblock%}

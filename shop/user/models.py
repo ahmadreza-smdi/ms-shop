@@ -18,7 +18,7 @@ class Customer(models.Model):
     address = models.CharField(max_length = 255)
     national_code = models.CharField(max_length = 11)
     def __str__(self):
-            return self.user
+            return str(self.user)
 
 
 
