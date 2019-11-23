@@ -4,7 +4,37 @@ ms shop is an online market that works with data mining assocition rule for sugg
 ## Running the project
 All the files of the project is combined and all the modules are set to one file, so to run the 
 
-project you just need to run.py file
+First of all you need to install pip3
+```
+sudo apt-get -y install python3-pip
+
+```
+after that you install django with pip, each version of django is different, in this project we work with djnago v2.0
+by executing the below code you will install latest verion of django
+```
+pip3 install django
+```
+we have all the requirements listed in requirments.txt you can use that to install all of them.
+```
+pip3 install -r /path/to/requirements.txt
+
+```
+also the requirements listed as
+```
+astroid==2.2.5
+Django==2.2.4
+isort==4.3.21
+lazy-object-proxy==1.4.2
+mccabe==0.6.1
+psycopg2==2.8.3
+pylint==2.3.1
+pytz==2019.2
+six==1.12.0
+sqlparse==0.3.0
+typed-ast==1.4.0
+wrapt==1.11.2
+```
+after installing you can run the project by using
 ```
 python3 manage.py runserver
 ```
