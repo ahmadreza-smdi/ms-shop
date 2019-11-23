@@ -1,5 +1,5 @@
 # ms-shop
-ms shop is an online market that works with data mining assocition rule for suggesting the products
+ms shop is an online market that works with data mining assocition rule to suggest the products
 
 ## Running the project
 All the files of the project is combined and all the modules are set to one file, so to run the 
